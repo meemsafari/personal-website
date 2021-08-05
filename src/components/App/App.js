@@ -2,8 +2,9 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "../About/About";
-import Works from "../Works/Contact";
-import Contact from "../Works/Contact";
+import Works from "../Works/Works";
+import Contact from "../Contact/Contact";
+import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
 					</Route>
 					<Route path="/contact">
 						<Contact />
+					</Route>
+					<Route path="/blog">
+						<Blog />
 					</Route>
 					<Route path="/">
 						<Home />

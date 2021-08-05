@@ -4,7 +4,13 @@ import Layout from "../Layout/Layout";
 const Contact = () => {
 	return (
 		<Layout>
-			contact
+			<div className="container">
+				<div className="row">
+					<div className="col-12">
+						Contact Page
+					</div>
+				</div>
+			</div>
 		</Layout>
 	)
 }

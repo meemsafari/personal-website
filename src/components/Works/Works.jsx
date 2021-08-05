@@ -3,22 +3,20 @@ import Layout from "../Layout/Layout";
 import WORKS from "../App/WORKS.json";
 import WorkItem from "../WorkItem/WorkItem";
 
-const About = () => {
+const Works = () => {
 	return (
 		<Layout>
 			<div className="container">
 				<div className="row justify-content-center mt-5">
 					<div className="col-12 col-md-9">
 						<h1>
-							About
+							Works
 						</h1>
-						<p>
-							I am a FrontEnd developer with industry experience
-							building websites and web applications. I specialize
-							in JavaScript and have professional experience
-							working with Angular. I also have experience working
-							with ReactJS and VueJS.
-						</p>
+						<div className="row">
+							{WORKS.map((item) => (
+								<WorkItem item={item} key={item.id} />
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -26,4 +24,4 @@ const About = () => {
 	)
 }
 
-export default About;
+export default Works;

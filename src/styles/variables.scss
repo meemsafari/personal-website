@@ -1,14 +1,27 @@
 $primary: #151618;
 $secondary: #00A8CC;
 
-$success: #11be11;
-$info: #00A8CC;
-$warning: #FDC435;
-$danger: #FF6464;
-
+//Text Colors
 $text-dark: #21243D;
 $text-gray: #A0A0A0;
 $text-light: #8695A4;
 $text-danger: #FF6464;
 
+//Alt Colors
 $white: #ffffff;
+$black: #000000;
+$gray: #e5e5e5;
+
+//Info Colors
+$success: #11be11;
+$info: #00A8CC;
+$warning: #FDC435;
+$danger: #FF6464;
+
+// Bg colors
+$bg-colors-list: (
+	bg-light-blue: lighten($info, 57%)
+);
+
+//Radius
+$main-radius: 6px;

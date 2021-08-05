@@ -1,8 +1,11 @@
-img {
+h2 {
+	font-size: 1.5rem!important;
+}
+img.me {
 	max-width: 220px;
 }
 @media(max-width: 767px) {
-	img {
+	img.me {
 		max-width: 150px;
 	}
 }
