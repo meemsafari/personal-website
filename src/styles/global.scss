@@ -1,0 +1,39 @@
+@import "./src/styles/variables";
+
+body {
+	font-family: 'Heebo', sans-serif!important;
+	font-size: 16px!important;
+	font-weight: 400!important;
+	color: $text-dark!important;
+	background-color: $white!important;
+}
+
+p {
+	line-height: 24px;
+}
+
+a {
+	color: $text-dark!important;
+	text-decoration: none!important;
+	&:hover {
+		color: $text-danger!important;
+	}
+	&.active {
+		color: $text-danger!important;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $text-dark!important;
+	line-height: 42px;
+}
+
+h1,.h1 {
+	font-weight: 700;
+	font-size: 2.25rem;
+}
+
+h2,.h2 {
+	font-weight: 600;
+	font-size: 2rem;
+}
