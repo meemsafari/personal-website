@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../Layout/Layout";
 import { Link, useParams } from 'react-router-dom';
+import Loading from "../Loading/Loading";
 
 const SingleBlog = () => {
 
@@ -42,9 +43,7 @@ const SingleBlog = () => {
 				{loading &&
 					<div className="row">
 						<div className="col-12 text-center pt-5 pb-5">
-							<b>
-								Loading...
-							</b>
+							<Loading />
 						</div>
 					</div>
 				}

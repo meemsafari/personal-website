@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Layout from "../Layout/Layout";
 import PostItem from "../BlogPostItem/PostItem";
+import Loading from "../Loading/Loading";
 
 const Blog = () => {
 
@@ -64,7 +65,7 @@ const Blog = () => {
 						</h1>
 						<div className="row">
 							{loading && <div className="col-12 text-center pt-5
-							pb-5"><b>Loading...</b></div>}
+							pb-5"><Loading /></div>}
 							{posts.length == 0 && !loading && <div className="col-12
 							text-center pt-5 pb-5">
 								<div className="alert alert-info">
