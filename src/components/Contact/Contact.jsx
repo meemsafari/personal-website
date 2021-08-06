@@ -7,23 +7,54 @@ const Contact = () => {
 	const [subject, setSubject] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
+	const [errors, setErrors] = useState({});
+
+	const validateEmail = (email) => {
+
+		const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+
+	}
 
 	const handleChangeSubject = (event) => {
+
 		setSubject(event.target.value);
+
 	}
 
 	const handleChangeEmail = (event) => {
-		setEmail(event.target.value);
+
+		if ( validateEmail(event.target.value) ) {
+
+			setEmail(event.target.value);
+			setErrors({
+				...errors,
+				email: null
+			})
+
+		} else {
+
+			setErrors({
+				...errors,
+				email: 'Email is not valid'
+			})
+
+		}
+
 	}
 
 	const handleChangeMessage = (event) => {
+
 		setMessage(event.target.value);
+
 	}
 
 	const handleSubmit = () => {
+
 		console.log('subject:', subject);
 		console.log('email:', email);
 		console.log('message:', message);
+
 	}
 
 	return (
@@ -49,8 +80,15 @@ const Contact = () => {
 									<label htmlFor="email"
 										   className="form-label">Email</label>
 									<input onChange={handleChangeEmail}
-										   type="email" className="form-control"
+										   type="email"
+										   className={`form-control
+										   ${errors.email ? "is-invalid" : ""}`}
 										   id="email" maxLength="255" />
+									{ errors.email &&
+										<div className="invalid-feedback">
+											{errors.email}
+										</div>
+									}
 								</div>
 								<div className="mb-3">
 									<label htmlFor="description"
