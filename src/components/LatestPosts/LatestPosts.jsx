@@ -1,10 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import "./LatestPosts.scss"
 import PostItem from "../PostItem/PostItem";
-import POSTS from "../App/POSTS.json"
 
 const LatestPosts = () => {
+
+	const [posts, handlePosts] = useState([]);
+	const [loading, handleLoading] = useState(false);
+
+	const loadPosts = async () => {
+
+		handleLoading(true);
+
+		const response = await fetch('https://run.mocky.io/v3/b03e4ee2-2ddd-4e6f-b71b-e402311209c6');
+		const posts = await response.json();
+
+		handlePosts(posts);
+
+		handleLoading(false);
+
+	}
+
+	useEffect(() => {
+
+		loadPosts();
+
+	}, [])
+
 	return (
 		<section className="bg-light-blue pt-3 pb-3 pb-md-5">
 			<div className="container">
@@ -21,7 +43,14 @@ const LatestPosts = () => {
 					</div>
 				</div>
 				<div className="row">
-					{POSTS.map((item) => (
+					{loading && <div className="col-12 text-center pt-5
+							pb-5"><b>Loading...</b></div>}
+					{posts.length == 0 && !loading && <div className="col-12
+							text-center pt-5 pb-5">
+						<div className="alert alert-info">
+							No posts ...
+						</div></div>}
+					{posts && !loading && posts.slice(0,2).map((item) => (
 						<PostItem item={item} key={item.id} />
 					))}
 				</div>
