@@ -1,28 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Layout from "../Layout/Layout";
 import PostItem from "../PostItem/PostItem";
 
 const Blog = () => {
 
-	const [posts, handlePosts] = useState([]);
-	const [loading, handleLoading] = useState(false);
+	const [posts, setPosts] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [pageCounts, setPageCounts] = useState(0);
+	const [activePageNumber, setActivePageNumber] = useState(1);
 
 	const loadPosts = async () => {
 
-		handleLoading(true);
+		setLoading(true);
 
 		const response = await fetch('https://run.mocky.io/v3/b03e4ee2-2ddd-4e6f-b71b-e402311209c6');
 		const posts = await response.json();
 
-		handlePosts(posts);
+		setPosts(posts);
 
-		handleLoading(false);
+		setLoading(false);
 
 	}
 
 	useEffect(() => {
 
 		loadPosts();
+
+	}, [])
+
+	useEffect(() => {
+
+		setPageCounts(calculatePageCounts());
+
+	}, [posts])
+
+	const calculatePageCounts = () => {
+
+		if ( posts.length % 6 > 0 ) {
+
+			return parseInt(posts.length / 6 + 1);
+
+		} else {
+
+			return parseInt(posts.length / 6 );
+
+		}
+
+	}
+
+	const handleClickOnPages = useCallback((pageNumber) => {
+
+		setActivePageNumber(pageNumber);
 
 	}, [])
 
@@ -42,9 +70,25 @@ const Blog = () => {
 								<div className="alert alert-info">
 									No posts ...
 								</div></div>}
-							{posts && !loading && posts.map((item) => (
+							{posts.length > 0 && !loading && posts.slice(6 * (activePageNumber - 1), 6 * activePageNumber).map((item) => (
 								<PostItem item={item} key={item.id} />
 							))}
+						</div>
+						<div className="row">
+							<div className="col-12">
+								<nav aria-label="...">
+									<ul className="pagination justify-content-center">
+										{new Array(pageCounts).fill(0).map((item, index) => (
+											<li onClick={() => handleClickOnPages(index + 1)}
+												className={`page-item ${activePageNumber == index + 1 ? 'active' : ''}`} aria-current="page" key={index}>
+												<span className="page-link">
+													{ index + 1 }
+												</span>
+											</li>
+										))}
+									</ul>
+								</nav>
+							</div>
 						</div>
 					</div>
 				</div>

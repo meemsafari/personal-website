@@ -149,3 +149,16 @@ h2,.h2 {
 .badge-danger {
 	@include badge($danger, 22%);
 }
+
+//pagination
+.page-item.active .page-link {
+	background-color: $danger;
+	border-color: $danger;
+}
+.page-link {
+	color: $danger;
+	cursor: pointer;
+}
+.page-link:hover {
+	color: $danger;
+}

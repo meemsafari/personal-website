@@ -5,19 +5,19 @@ import PostItem from "../PostItem/PostItem";
 
 const LatestPosts = () => {
 
-	const [posts, handlePosts] = useState([]);
-	const [loading, handleLoading] = useState(false);
+	const [posts, setPosts] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	const loadPosts = async () => {
 
-		handleLoading(true);
+		setLoading(true);
 
 		const response = await fetch('https://run.mocky.io/v3/b03e4ee2-2ddd-4e6f-b71b-e402311209c6');
 		const posts = await response.json();
 
-		handlePosts(posts);
+		setPosts(posts);
 
-		handleLoading(false);
+		setLoading(false);
 
 	}
 
