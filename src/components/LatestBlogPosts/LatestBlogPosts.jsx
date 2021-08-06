@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import "./LatestPosts.scss"
-import PostItem from "../PostItem/PostItem";
+import "./LatestBlogPosts.scss"
+import PostItem from "../BlogPostItem/PostItem";
 
-const LatestPosts = () => {
+const LatestBlogPosts = () => {
 
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ const LatestPosts = () => {
 							No posts ...
 						</div></div>}
 					{posts && !loading && posts.slice(0,2).map((item) => (
-						<PostItem item={item} key={item.id} />
+						<PostItem item={item} />
 					))}
 				</div>
 			</div>
@@ -59,4 +59,4 @@ const LatestPosts = () => {
 	)
 }
 
-export default LatestPosts;
+export default LatestBlogPosts;

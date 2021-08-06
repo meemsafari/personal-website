@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Layout from "../Layout/Layout";
-import PostItem from "../PostItem/PostItem";
+import PostItem from "../BlogPostItem/PostItem";
 
 const Blog = () => {
 
@@ -71,7 +71,7 @@ const Blog = () => {
 									No posts ...
 								</div></div>}
 							{posts.length > 0 && !loading && posts.slice(6 * (activePageNumber - 1), 6 * activePageNumber).map((item) => (
-								<PostItem item={item} key={item.id} />
+								<PostItem item={item} />
 							))}
 						</div>
 						<div className="row">
