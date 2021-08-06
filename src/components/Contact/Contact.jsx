@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 import Button from "../Button/Button";
+import { validateEmail, validateSubject } from "../../utils/validation"
 
 const Contact = () => {
 
@@ -9,16 +10,24 @@ const Contact = () => {
 	const [message, setMessage] = useState("");
 	const [errors, setErrors] = useState({});
 
-	const validateEmail = (email) => {
-
-		const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(String(email).toLowerCase());
-
-	}
-
 	const handleChangeSubject = (event) => {
 
-		setSubject(event.target.value);
+		if ( validateSubject(event.target.value) ) {
+
+			setSubject(event.target.value);
+			setErrors({
+				...errors,
+				subject: null
+			})
+
+		} else {
+
+			setErrors({
+				...errors,
+				subject: 'Subject is required'
+			})
+
+		}
 
 	}
 
@@ -73,8 +82,15 @@ const Contact = () => {
 										Subject
 									</label>
 									<input onChange={handleChangeSubject}
-										   type="text" className="form-control"
-										   id="subject" maxLength="100" />
+										   type="text"
+										   className={`form-control
+										   ${errors.subject ? "is-invalid" : ""}`}
+										   id="subject" maxLength="255" />
+									{ errors.subject &&
+									<div className="invalid-feedback">
+										{errors.subject}
+									</div>
+									}
 								</div>
 								<div className="mb-3">
 									<label htmlFor="email"
