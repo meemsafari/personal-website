@@ -4,7 +4,7 @@ import "./PostItem.scss";
 const PostItem = ({ item }) => {
 	return (
 		<div className="col-12 col-md-6" key={item.id} >
-			<div className="card">
+			<div className="card mb-3 mb-md-0">
 				<div className="card-body">
 					<div className="card-title">
 						<h3>

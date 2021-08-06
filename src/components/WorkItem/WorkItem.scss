@@ -1,10 +1,7 @@
-@import "src/styles/variables";
+@import "../../assets/styles/variables";
 
-.article {
-	border-bottom: 1px solid $gray;
-	padding-left: 0px!important;
+.work-item {
 	.image-wrapper {
-		padding-left: 0!important;
 		img {
 			border-radius: $main-radius;
 			max-width: 100%;
@@ -30,5 +27,4 @@
 			color: $text-light;
 		}
 	}
-
 }

@@ -15,7 +15,7 @@ const LatestPosts = () => {
 						</h4>
 					</div>
 					<div className="col-6 text-end">
-						<Link className="view-more" to="/blog">
+						<Link className="view-more inline-middle" to="/blog">
 							View all
 						</Link>
 					</div>

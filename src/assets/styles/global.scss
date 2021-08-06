@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 42px;
 }
 
+@media(max-width: 767px) {
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 32px;
+	}
+}
+
 h1,.h1 {
 	font-weight: 700;
 	font-size: 2.25rem;
@@ -38,6 +44,11 @@ h2,.h2 {
 
 :focus {
 	outline: -webkit-focus-ring-color auto 0px;
+}
+
+.inline-middle {
+	display: inline-block!important;
+	vertical-align: -webkit-baseline-middle!important;
 }
 
 // Create bg-$color classes ------------------------------------------- //
