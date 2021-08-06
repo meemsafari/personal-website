@@ -4,20 +4,26 @@ import Button from "../Button/Button";
 
 const Contact = () => {
 
-	const handleChangeInput = (event) => {
-		console.log(event.target.value);
+	const [subject, setSubject] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+	const handleChangeSubject = (event) => {
+		setSubject(event.target.value);
 	}
 
 	const handleChangeEmail = (event) => {
-		console.log(event.target.value);
+		setEmail(event.target.value);
 	}
 
-	const handleChangeTextAria = (event) => {
-		console.log(event.target.value);
+	const handleChangeMessage = (event) => {
+		setMessage(event.target.value);
 	}
 
 	const handleSubmit = () => {
-		console.log('Submitted');
+		console.log('subject:', subject);
+		console.log('email:', email);
+		console.log('message:', message);
 	}
 
 	return (
@@ -35,7 +41,7 @@ const Contact = () => {
 										   className="form-label">
 										Subject
 									</label>
-									<input onChange={handleChangeInput}
+									<input onChange={handleChangeSubject}
 										   type="text" className="form-control"
 										   id="subject" maxLength="100" />
 								</div>
@@ -51,10 +57,10 @@ const Contact = () => {
 										   className="form-label">
 										Message
 									</label>
-									<textarea onChange={handleChangeTextAria}
+									<textarea onChange={handleChangeMessage}
 											  className="form-control" rows="6"
-											  name="description"
-											  id="description">
+											  name="message"
+											  id="message">
 									</textarea>
 								</div>
 								<Button handleClick={handleSubmit}>
