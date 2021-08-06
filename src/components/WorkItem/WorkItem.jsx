@@ -3,7 +3,7 @@ import "./WorkItem.scss";
 
 const WorkItem = ({ item }) => {
 	return (
-		<div className="col-12 col-md-9">
+		<div className="col-12 col-md-9" key={item.id}>
 			<div className="row work-item pt-2 pb-2 text-center text-md-start justify-content-center">
 				<div className="col-12 col-md-4 image-wrapper">
 					<img className="mb-2 mb-md-0" src={item.image} alt={item.title} />
@@ -25,6 +25,9 @@ const WorkItem = ({ item }) => {
 					<p>
 						{item.description}
 					</p>
+					<a className="btn btn-success btn-sm" href={item.link} target="_blank">
+						View
+					</a>
 				</div>
 			</div>
 		</div>
