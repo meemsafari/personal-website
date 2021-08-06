@@ -1,7 +1,5 @@
 import React from "react";
 import Layout from "../Layout/Layout";
-import WORKS from "../App/WORKS.json";
-import WorkItem from "../WorkItem/WorkItem";
 
 const About = () => {
 	return (

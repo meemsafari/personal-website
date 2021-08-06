@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../Layout/Layout";
+import Button from "../Button/Button";
 
 const Contact = () => {
+
+	const handleChangeInput = (event) => {
+		console.log(event.target.value);
+	}
+
+	const handleChangeEmail = (event) => {
+		console.log(event.target.value);
+	}
+
+	const handleChangeTextAria = (event) => {
+		console.log(event.target.value);
+	}
+
+	const handleSubmit = () => {
+		console.log('Submitted');
+	}
+
 	return (
 		<Layout>
 			<div className="container">
@@ -13,20 +31,35 @@ const Contact = () => {
 						<div className="row">
 							<div className="col-12">
 								<div className="mb-3">
-									<label htmlFor="exampleInputEmail1"
-										   className="form-label">Email
-										address</label>
-									<input type="email" className="form-control"
-										   id="exampleInputEmail1"
-										   aria-describedby="emailHelp" />
-										<div id="emailHelp"
-											 className="form-text">We'll never share
-											your email with anyone else.
-										</div>
+									<label htmlFor="subject"
+										   className="form-label">
+										Subject
+									</label>
+									<input onChange={handleChangeInput}
+										   type="text" className="form-control"
+										   id="subject" maxLength="100" />
 								</div>
-								<button type="submit"
-										className="btn btn-primary">Submit
-								</button>
+								<div className="mb-3">
+									<label htmlFor="email"
+										   className="form-label">Email</label>
+									<input onChange={handleChangeEmail}
+										   type="email" className="form-control"
+										   id="email" maxLength="255" />
+								</div>
+								<div className="mb-3">
+									<label htmlFor="description"
+										   className="form-label">
+										Message
+									</label>
+									<textarea onChange={handleChangeTextAria}
+											  className="form-control" rows="6"
+											  name="description"
+											  id="description">
+									</textarea>
+								</div>
+								<Button handleClick={handleSubmit}>
+									Submit
+								</Button>
 							</div>
 						</div>
 					</div>
