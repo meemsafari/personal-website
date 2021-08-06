@@ -5,8 +5,8 @@ const About = () => {
 	return (
 		<Layout>
 			<div className="container">
-				<div className="row justify-content-center mt-5">
-					<div className="col-12 col-md-9">
+				<div className="row justify-content-center pt-3 pt-md-5 pb-5">
+					<div className="col-12 col-md-10">
 						<h1>
 							About
 						</h1>
