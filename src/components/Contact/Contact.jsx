@@ -60,7 +60,7 @@ const Contact = () => {
 	return (
 		<Layout>
 			<div className="container">
-				<div className="row justify-content-center mt-5">
+				<div className="row justify-content-center pt-3 pt-md-5 pb-5">
 					<div className="col-12 col-md-9">
 						<h1>
 							Contact
